@@ -12,6 +12,7 @@ with open('database.csv') as data_file:
 	data_file.seek(0)
 	print "Data in database:"
 	print data_file.read()
+sum=0
 if(len(argv)==2):
 	print("Computing Sum:")
 	print(argv[1])
@@ -22,6 +23,8 @@ if(len(argv)==2):
 			field_data_type = meta_data[i][1]
 			field_size = meta_data[i][2]
 			present=1
+			for j in range (0,len(database)):
+				sum+=database[j][i]
 			break
 	if(present==0):
 		print "Attribute not present"
@@ -32,7 +35,8 @@ if(len(argv)==2):
 	#add more
 	if(field_data_type=='F' or field_data_type=='I'):
 		#add wala dal de
-		print "SUM"
+		
+		print "SUM is: "+sum
 	else:
 		print "Character type argument!"
 
