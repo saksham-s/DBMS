@@ -23,8 +23,6 @@ if(len(argv)==2):
 			field_data_type = meta_data[i][1]
 			field_size = meta_data[i][2]
 			present=1
-			for j in range (0,len(database)):
-				sum+=database[j][i]
 			break
 	if(present==0):
 		print "Attribute not present"
@@ -33,10 +31,22 @@ if(len(argv)==2):
 	print "Attribute Found."
 	print field_name,field_data_type,field_size
 	#add more
-	if(field_data_type=='F' or field_data_type=='I'):
-		#add wala dal de
-		
-		print "SUM is: "+sum
+	if(field_data_type=='I'):
+		for j in range(0,len(database[0])):
+			if(database[0][j]==field_name):
+				column=j
+				break
+		for j in range (1,len(database)):
+				sum+=int(database[j][column])
+		print "SUM is: ",sum
+	elif(field_data_type=='F'):
+		for j in range(0,len(database[0])):
+			if(database[0][j]==field_name):
+				column=j
+				break
+		for j in range (1,len(database)):
+				sum+=float(database[j][column])
+		print "SUM is: ",sum
 	else:
 		print "Character type argument!"
 
