@@ -1,7 +1,7 @@
-ID,Status,Price,SID
-360,Landed,5999.99,6345.543
-217,On Time,4786.98,434.6
-239,Arrived,3682.99,32.6
-567,Delayed,5609.98,9235.8
-456,Arrived,1234.76,23.77
-324,Landed,4356.123,34.778
+ID,Status,Price
+360,Landed,5999.99
+217,On Time,4786.98
+239,Arrived,3682.99
+567,Delayed,5609.98
+456,Arrived,1234.76
+324,Landed,4356.123
