@@ -6,7 +6,7 @@ with open('metadata.csv') as meta_file:
 #Striping endline and spliting use comma
 print meta_data
 no_of_attr = len(meta_data)
-print no_of_attr
+print "Number of attributes: " + no_of_attr
 with open('database.csv') as data_file:
 	database = [line.rstrip('\n').split(',') for line in data_file]
 	data_file.seek(0)
