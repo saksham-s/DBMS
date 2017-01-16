@@ -50,7 +50,7 @@ if(len(argv)==2):
 				sum+=float(database[j][column])
 		print "SUM is: ",sum
 	else:
-		print "Character type argument!"
+		print "Sum cannot be computed for this argument,because either it is not present or is non numeric!"
 
 else:
 	print "Invalid argument!"
