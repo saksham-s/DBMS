@@ -35,7 +35,7 @@ if(len(argv)==2):
 				sum+=float(database[j][i])
 		print "SUM is: ",sum
 	else:
-		print "Invalid argument, sum cannot be computed for it"
+		print "Sum cannot be computed for this argument,because either it is not present or is non numeric!"
 
 else:
 	print "Invalid argument!"
