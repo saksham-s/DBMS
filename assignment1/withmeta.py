@@ -2,10 +2,6 @@ from sys import argv,exit
 
 import time
 start_time = time.time()
-
-
-
-
 #Opening meta-data file
 with open('metadata.csv') as meta_file:
 	meta_data = [line.rstrip('\n').split(',') for line in meta_file]

@@ -1,13 +1,7 @@
 from sys import argv,exit
 
-
 import time
 start_time = time.time()
-
-
-
-
-
 with open('database.csv') as data_file:
 	database = [line.rstrip('\n').split(',') for line in data_file]
 	data_file.seek(0)
