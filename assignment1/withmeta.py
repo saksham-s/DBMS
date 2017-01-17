@@ -41,7 +41,7 @@ if(len(argv)==2):
 		for j in range (1,len(database)):
 				sum+=int(database[j][column])
 		print "SUM is: ",sum
-	elif(field_data_type=='F'):
+	elif(field_data_type=='F' or field_data_type=='D'):
 		for j in range(0,len(database[0])):
 			if(database[0][j]==field_name):
 				column=j
