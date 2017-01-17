@@ -10,7 +10,34 @@ print meta_data
 no_of_attr = len(meta_data)
 print "Number of attributes: ",no_of_attr
 with open('database.csv') as data_file:
+	#code consistency checks
 	database = [line.rstrip('\n').split(',') for line in data_file]
+	for j in range(0,len(database[0])):
+		for i in range(no_of_attr):
+			if(meta_data[i][0]==database[0][j]):
+				field_name = meta_data[i][0]
+				field_data_type = meta_data[i][1]
+				field_size = int(meta_data[i][2])
+		for k in range(1,len(database)):
+			if(field_data_type=='I'):
+				if(not database[k][j].isdigit()):
+					print 'Inconsistent data type in ',field_name,'at',k,j
+					exit(1)
+				if(len(database[k][j])>field_size):
+					print 'Inconsistent size of data in ',field_name,'at',k,j
+					exit(1)
+			if(field_data_type=='D' or field_data_type=='F'):
+				if(len(database[k][j].replace('.','',1))>field_size):
+					print 'Inconsistent size of data in ',field_name,'at',k,j
+					exit(1)
+				if(not(database[k][j].replace('.','',1).isdigit())):
+					print 'Inconsistent type of data in ',field_name,'at',k,j
+					exit(1)
+			else:
+				if(len(database[k][j])>field_size):
+					print 'Inconsistent size of data in',field_name,'at',k,j
+					exit(1)
+	#display of data
 	data_file.seek(0)
 	print "Data in database:"
 	print data_file.read()
