@@ -1,4 +1,9 @@
 ID,I,5
+<<<<<<< HEAD
 Status,C,20
 Price,F,10
 L,I,12
+=======
+Price,F,10
+Status,C,20
+>>>>>>> b29eb54711bd47e584d37624bc54ec247815c6b1
