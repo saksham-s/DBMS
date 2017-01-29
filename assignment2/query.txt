@@ -45,4 +45,48 @@ INSERT INTO cars(cid,cname,colour) VALUES (101,'Renault','blue');
 INSERT INTO cars(cid,cname,colour) VALUES (102,'Renault','red');
 INSERT INTO cars(cid,cname,colour) VALUES (103,'Skoda','green');
 INSERT INTO cars(cid,cname,colour) VALUES (104,'Jaguar','red');
+INSERT INTO cars(cid,cname,colour) VALUES (105,'Maruti','yellow');
 
+select D.dname
+from drivers D
+where D.did in  (
+                        select R.did
+                        from cars C, reserves R
+                        where R.cid = C.cid and C.colour = 'red' and R.did 
+                        in(
+                        select R.did
+                        from cars C, reserves R
+                        where R.cid  = C.cid and C.colour = 'green'
+                        ))
+
+select D.dname
+from drivers D
+where D.did in  (
+                        select R.did
+                        from cars C, reserves R
+                        where R.cid = C.cid and R.did not
+                        in(
+                        select R.did
+                        from cars C, reserves R
+                        where R.cid  = C.cid and C.colour = 'blue'
+                        ))
+
+select D.rating,AVG(D.age) AS 'Average Age'
+from drivers D
+group by  D.rating
+
+select D.dname
+from drivers D
+where D.did in  (select R.did
+                        from cars C, reserves R
+                        where R.cid = C.cid and C.cname = 'Skoda')
+
+select cname
+from cars 
+where cname not in (
+                        select C.cname
+                        from cars C, reserves R
+                        where R.cid = C.cid
+                        )
+
+      
