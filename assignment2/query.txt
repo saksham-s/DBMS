@@ -1,0 +1,48 @@
+CREATE DATABASE dbms;
+USE dbms;
+CREATE TABLE drivers(
+   did    INTEGER  NOT NULL PRIMARY KEY 
+  ,dname  VARCHAR(30)
+  ,rating INTEGER 
+  ,age    INTEGER 
+);
+
+CREATE TABLE reserves(
+   did     INTEGER  NOT NULL
+  ,cid     INTEGER  NOT NULL
+  ,charges INTEGER
+  ,PRIMARY KEY(did,cid)
+);
+
+CREATE TABLE cars(
+   cid    INTEGER  NOT NULL PRIMARY KEY 
+  ,cname  VARCHAR(25)
+  ,colour VARCHAR(10)
+);
+INSERT INTO drivers(did,dname,rating,age) VALUES (22,'Karthikeyan',7,25);
+INSERT INTO drivers(did,dname,rating,age) VALUES (29,'Salman',1,33);
+INSERT INTO drivers(did,dname,rating,age) VALUES (31,'Boris',8,55);
+INSERT INTO drivers(did,dname,rating,age) VALUES (32,'Amoldt',8,25);
+INSERT INTO drivers(did,dname,rating,age) VALUES (58,'Schumacher',10,35);
+INSERT INTO drivers(did,dname,rating,age) VALUES (64,'Sachin',7,35);
+INSERT INTO drivers(did,dname,rating,age) VALUES (71,'Senna',10,16);
+INSERT INTO drivers(did,dname,rating,age) VALUES (74,'Sachin',9,35);
+INSERT INTO drivers(did,dname,rating,age) VALUES (85,'Rahul',3,25);
+INSERT INTO drivers(did,dname,rating,age) VALUES (95,'Ralph',3,53);
+
+INSERT INTO reserves(did,cid,charges) VALUES (22,101,1016);
+INSERT INTO reserves(did,cid,charges) VALUES (22,102,1000);
+INSERT INTO reserves(did,cid,charges) VALUES (22,103,806);
+INSERT INTO reserves(did,cid,charges) VALUES (22,104,710);
+INSERT INTO reserves(did,cid,charges) VALUES (31,102,1011);
+INSERT INTO reserves(did,cid,charges) VALUES (31,103,611);
+INSERT INTO reserves(did,cid,charges) VALUES (31,104,1211);
+INSERT INTO reserves(did,cid,charges) VALUES (64,101,906);
+INSERT INTO reserves(did,cid,charges) VALUES (64,102,809);
+INSERT INTO reserves(did,cid,charges) VALUES (74,103,162);
+
+INSERT INTO cars(cid,cname,colour) VALUES (101,'Renault','blue');
+INSERT INTO cars(cid,cname,colour) VALUES (102,'Renault','red');
+INSERT INTO cars(cid,cname,colour) VALUES (103,'Skoda','green');
+INSERT INTO cars(cid,cname,colour) VALUES (104,'Jaguar','red');
+
