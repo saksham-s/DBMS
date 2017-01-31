@@ -47,6 +47,7 @@ INSERT INTO cars(cid,cname,colour) VALUES (103,'Skoda','green');
 INSERT INTO cars(cid,cname,colour) VALUES (104,'Jaguar','red');
 INSERT INTO cars(cid,cname,colour) VALUES (105,'Maruti','yellow');
 
+(a)
 select D.dname
 from drivers D
 where D.did in  (
@@ -58,7 +59,7 @@ where D.did in  (
                         from cars C, reserves R
                         where R.cid  = C.cid and C.colour = 'green'
                         ))
-
+(b)
 select D.dname
 from drivers D
 where D.did in  (
@@ -70,17 +71,17 @@ where D.did in  (
                         from cars C, reserves R
                         where R.cid  = C.cid and C.colour = 'blue'
                         ))
-
+(c)
 select D.rating,AVG(D.age) AS 'Average Age'
 from drivers D
 group by  D.rating
-
+(d)
 select D.dname
 from drivers D
 where D.did in  (select R.did
                         from cars C, reserves R
                         where R.cid = C.cid and C.cname = 'Skoda')
-
+(e)
 select cname
 from cars 
 where cname not in (
@@ -88,5 +89,14 @@ where cname not in (
                         from cars C, reserves R
                         where R.cid = C.cid
                         )
+(f)
+(g)
+(h)
+SELECT min(d.age) from drivers d where d.rating<=5;
+(i)
+SELECT distinct k.dname from drivers d,reserves r,drivers k,reserves l where d.did=r.did and k.did=l.did and d.dname='Boris' and k.dname!='Boris' and r.cid=l.cid;
 
-      
+(j)
+SELECT CONCAT('(',A.did,'\,',B.did,')') AS 'pair' From reserves A,reserves B WHERE A.cid=B.cid and A.did!=B.did and A.charges>B.charges;
+
+     
