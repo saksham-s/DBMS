@@ -90,7 +90,19 @@ where cname not in (
                         where R.cid = C.cid
                         )
 (f)
+select distinct did
+from reserves
+where chargegs = (
+                     select max(charges)
+                     from reserves);
 (g)
+select distinct cname
+from drivers,reserves,cars
+where drivers.did=reserves.did and reserves.cid=cars.cid and rating in(
+                                                                           select rating
+                                                                           from drivers
+                                                                           group by rating
+                                                                           having count(*)>1);
 (h)
 SELECT min(d.age) from drivers d where d.rating<=5;
 (i)
